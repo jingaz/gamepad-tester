@@ -1,12 +1,6 @@
 body {
   padding: 0px;
   margin: 0px;
-
-  background: linear-gradient(
-    0deg,
-    rgb(193, 202, 212) 0%,
-    rgba(234, 229, 253, 0) 25%
-  );
   height: 100vh;
 }
 
@@ -76,25 +70,30 @@ h1 {
 }
 
 .button {
-  background-color: rgb(223, 222, 222);
-  height: 50px;
-  min-width: 50px;
-  display: flex;
+    background-color: rgb(223 222 222 / 27%);
+    height: 35px;
+    min-width: 35px;
+    display: flex;
 }
-
 .button-text-area {
   padding-left: 10px;
   padding-right: 10px;
 }
 
 .button-name {
-  color: grey;
+  color: rgb(5, 51, 97);
+  font-size: 50%;
+  opacity: 0.6;
+}
+.button-value {
+  color: rgb(0, 0, 0);
+  font-size: 10px;
 }
 
 /* controller */
 
 .selected-button {
-  fill: rgb(231, 24, 24);
+  fill: black;
 }
 
 /* axes */
@@ -102,10 +101,12 @@ h1 {
 .axis-name {
   color: grey;
   font-weight: bolder;
+  font-size: 10px;
 }
 
 .axis-value {
   color: rgb(126, 54, 54);
+  font-size: 10px;
 }
 
 a {

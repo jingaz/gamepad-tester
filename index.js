@@ -54,15 +54,15 @@ function createButtonLayout(buttons) {
 
 function createButtonHtml(index, value) {
   return `<div class="button" id="button-${index}">
-            <svg width="10px" height="50px">
-                <rect width="10px" height="50px" fill="grey"></rect>
+            <svg width="5px" height="35px">
+                <rect width="5px" height="35px" fill="grey"></rect>
                 <rect
                     class="button-meter"
-                    width="10px"
+                    width="5px"
                     x="0"
-                    y="50"
-                    data-original-y-position="50"
-                    height="50px"
+                    y="35"
+                    data-original-y-position="35"
+                    height="35px"
                     fill="rgb(60, 61, 60)"
                 ></rect>
             </svg>
@@ -128,12 +128,18 @@ function updateStick(elementId, leftRightAxis, upDownAxis) {
   const stickLeftRight = leftRightAxis * multiplier;
   const stickUpDown = upDownAxis * multiplier;
 
+  const opacityLR = Math.abs(leftRightAxis);
+  const opacityUD = Math.abs(upDownAxis);
+  const opacity = opacityLR + opacityUD - opacityLR * opacityUD;
+
   const stick = document.getElementById(elementId);
   const x = Number(stick.dataset.originalXPosition);
   const y = Number(stick.dataset.originalYPosition);
 
   stick.setAttribute("cx", x + stickLeftRight);
   stick.setAttribute("cy", y + stickUpDown);
+
+  stick.setAttribute("fill", `rgba(0,0,0,${opacity})`);
 }
 
 function handleRumble(gamepad) {
